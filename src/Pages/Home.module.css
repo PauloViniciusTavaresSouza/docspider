@@ -1,0 +1,22 @@
+
+
+.containerInfo {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  top: 5vh;
+}
+
+.containerConteudo {
+  width: calc(100vw - 60px);
+}
+
+.containerConteudoAberto {
+  width: calc(100vw - 185px);
+}
+
+@media (max-width:450px) {
+  .containerConteudo {
+    width: 100vw;
+  }
+}
