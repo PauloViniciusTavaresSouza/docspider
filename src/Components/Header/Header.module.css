@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  padding: 0 10px;
+  background: linear-gradient(to right, #000A48 , #00478C);
+  position: fixed;
+  z-index: 10;
+}
+
+.menuHamburguerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 50px;
+}
+
+.menuHamburguer {
+content: '';
+display: block;
+width: 24px;
+height: 2px;
+border-radius: 2px;
+background: #fff;
+box-shadow: 0 6px #fff, 0 -6px #fff;
+transition: .2s;
+}
+
+.menuHamburguerAtivo {
+  transform: rotate(90deg);
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  box-shadow: 0 8px #fff, 0 -8px #fff;
+  transition: .2s;
+}
+
+.menuLogo  {
+  padding: 0 10px;
+}
+.menuLogo img {
+  width: 80px;
+}
