@@ -1,0 +1,96 @@
+.sidebar {
+  position: relative;
+  background: #fff;
+  height: 95vh;
+  /* width: 10vw; */
+  max-width: 250px;
+  min-width: 185px;
+  box-shadow: 0px 5px 10px #ccc ;
+  animation: slidein 1s;
+}
+@keyframes slidein {
+  from {
+    margin-left: -120px;
+    width: 55px;
+  }
+
+  to {
+    margin-left: 0px;
+    width: 10vw;
+  }
+}
+
+.fecharSideBar {
+  display: none;
+}
+
+.infoMenu a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #A3A3A3;
+  text-decoration: none;
+  padding:  10px 5px;
+  /* background: red; */
+}
+
+.itemMenu { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0px 5px 5px #EBEBEB ;
+}
+
+
+
+
+.icon {
+  padding: 0 10px;
+}
+.icon img {
+  width: 18px;
+  padding-top: 5px;
+}
+
+
+.abrirSidebar {
+  position: relative;
+  height: 95vh;
+  width: 60px;
+  box-shadow: 0px 5px 10px #ccc ;
+  transition: .5s;
+  /* background: red; */
+  animation: fecharModal 1s;
+}
+
+@keyframes fecharModal {
+  from {
+    width: 20vw;
+  }
+  
+  to {
+    width: 60px;
+  }
+}
+
+@media (max-width: 450px) {
+  .sidebar {
+    position: fixed;
+    z-index: 100;
+    background: #fff;
+    height: 100vh;
+    max-width: 250px;
+    min-width: 185px;
+    box-shadow: 0px 5px 10px #ccc ;
+    animation: slidein 1s;
+  }
+  
+  .abrirSidebar {
+    display: none;
+  }
+}
+
+
+@media (max-width:750px) {}
+
+@media (max-width:1050px) {}
