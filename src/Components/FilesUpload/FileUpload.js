@@ -8,8 +8,6 @@ export const FileUpload = ({ files, setFiles, removeFile }) => {
     file.isUploading = true;
     setFiles([...files, file]);
 
-    console.log('O que é files', files);
-
     // upload file
 
     const formData = new FormData();
@@ -28,11 +26,49 @@ export const FileUpload = ({ files, setFiles, removeFile }) => {
       });
   };
 
+  const [valueInput, SetValueInput] = React.useState('');
+  const [name, SetName] = React.useState('');
+
+  // console.log(valueInput);
+
+  function onChange(ev) {
+    const { name, value } = ev.target;
+    SetValueInput(value);
+    SetName(name);
+  }
+  // console.log(name);
+  // console.log(valueInput);
+
   return (
     <section>
+      <form className={styles.formulario}>
+        <label htmlFor="titulo">Título</label>
+        <input
+          className={styles.inputText}
+          type="text"
+          name={name}
+          value={valueInput}
+          onChange={onChange}
+        />
+
+        <label htmlFor="descricao">Descrição</label>
+        <input
+          onChange={onChange}
+          className={styles.inputText}
+          type="text"
+          name="descricao"
+        />
+      </form>
+      <p className={styles.title}>Upload file</p>
+
       <div className={styles.fileCard}>
         <div className={styles.fileInputs}>
-          <input onChange={uploadHandle} type="file" />
+          <input
+            className={styles.inputfile}
+            onChange={uploadHandle}
+            type="file"
+            name="file"
+          />
           <button>+ Uploade</button>
         </div>
 

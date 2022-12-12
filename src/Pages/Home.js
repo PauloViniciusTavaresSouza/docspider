@@ -4,12 +4,14 @@ import styles from './Home.module.css';
 import { Header } from '../Components/Header/Header';
 import { Sidebar } from '../Components/Sidebar/Sidebar';
 import { Inicio } from './Inicio';
-import Documents from './Documents';
+import Signup from './Signup';
 import { Sobre } from './Sobre';
+import { Documents } from './Documents';
 
 export const Home = () => {
   const [open, setOpen] = React.useState(false);
   const [modalVisible, setModalVisible] = React.useState(true);
+  console.log(open);
 
   return (
     <BrowserRouter>
@@ -29,7 +31,8 @@ export const Home = () => {
           >
             <Routes>
               <Route path="/inicio" element={<Inicio open={open} />} />
-              <Route path="/document" element={<Documents />} />
+              <Route path="/document" element={<Documents open={open} />} />
+              <Route path="/signup" element={<Signup open={open} />} />
               <Route
                 path="/sobre"
                 element={

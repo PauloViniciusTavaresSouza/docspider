@@ -1,0 +1,39 @@
+.listItem {
+  list-style: none;
+  margin: 1.2em 0;
+  background-color: #f55e3038;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 1.2em 1.5em;
+
+}
+
+.removeItem p{ 
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.namearq {
+  flex: 1;
+  font-size: .9em;
+}
+
+.animationLoading {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  /* background-color: #f55321; */
+  border: 3px dashed #F55321;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+	100% {
+		transform: rotate(360deg);
+	}
+}

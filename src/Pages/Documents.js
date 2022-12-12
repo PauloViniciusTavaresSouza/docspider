@@ -1,30 +1,24 @@
-import React, { useState } from 'react';
-import { FileList } from '../Components/FilesUpload/FileList';
-import { FileUpload } from '../Components/FilesUpload/FileUpload';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { HeaderDoc } from '../Components/HeaderDocumentos/HeaderDoc';
 import styles from './Documents.module.css';
+import FileDownload from 'js-file-download';
+import { Axios } from 'axios';
 
-const Documents = () => {
-  const [files, setFiles] = useState([
-    {
-      name: 'myFile.pdf',
-    },
-  ]);
-
-  const removeFile = (filename) => {
-    setFiles(files.filter((file) => file.name !== filename));
+export const Documents = ({ open }) => {
+  const download = (e) => {
+    e.preventDefault();
+    Axios({
+      ulr: 'http://localhost:8080/',
+      method: 'GET',
+      responseType: 'blob',
+    }).then((res) => {
+      FileDownload(res.data, 'Donwloaded.png');
+    });
   };
-
-  console.log(files);
-
   return (
     <section className={styles.containerPrincipal}>
-      <div className={styles.containerDoc}>
-        <p className={styles.title}>Upload file</p>
-        <FileUpload files={files} setFiles={setFiles} removeFile={removeFile} />
-        <FileList files={files} removeFile={removeFile} />
-      </div>
+      <button onClick={(e) => download(e)}>Download</button>
     </section>
   );
 };
-
-export default Documents;

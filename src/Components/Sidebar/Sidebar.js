@@ -6,17 +6,27 @@ import Doc from '../../img/doc.png';
 import Sobre from '../../img/sobre.png';
 
 export const Sidebar = ({ open, setOpen, modalVisible, setModalVisible }) => {
+  const [submenu, setSubmenu] = React.useState(false);
   function activeModal() {
     setModalVisible(true);
   }
 
   function activeMenu() {
-    if (open === true) {
-      setOpen(false);
-    } else {
+    if (open === false) {
       setOpen(true);
+    } else {
+      setOpen(false);
     }
   }
+
+  function subMenu() {
+    if (submenu === false) {
+      setSubmenu(true);
+    } else {
+      setSubmenu(false);
+    }
+  }
+  console.log('isso é o sub', submenu);
   return (
     <section
       id="sidebar"
@@ -35,10 +45,13 @@ export const Sidebar = ({ open, setOpen, modalVisible, setModalVisible }) => {
           </Link>
         </div>
       </div>
-
-      <div id="documento" className={`${styles.itemMenu} ${styles.documento}`}>
+      <div
+        onClick={subMenu}
+        id="documento"
+        className={`${styles.itemMenu} ${styles.documento}`}
+      >
         <div
-          onClick={activeMenu}
+          // onClick={activeMenu}
           className={`${open ? styles.fecharSideBar : styles.infoMenu}`}
         >
           <Link to="document">Meus Documentos</Link>
@@ -49,7 +62,26 @@ export const Sidebar = ({ open, setOpen, modalVisible, setModalVisible }) => {
           </Link>
         </div>
       </div>
-
+      {/* //------------------------- */}
+      {submenu && (
+        <div
+          id="documento"
+          className={`${styles.itemMenu} ${styles.cadastrar}`}
+        >
+          <div
+            onClick={activeMenu}
+            className={`${open ? styles.fecharSideBar : styles.infoMenu}`}
+          >
+            <Link to="signup">Cadastrar</Link>
+          </div>
+          <div onClick={activeMenu} className={styles.icon}>
+            <Link to="signup">
+              <img src={Doc} alt="Documento" />
+            </Link>
+          </div>
+        </div>
+      )}
+      {/* //------------------------- */}
       <div id="sobre" className={`${styles.itemMenu} ${styles.sobre}`}>
         <div
           onClick={activeMenu}
