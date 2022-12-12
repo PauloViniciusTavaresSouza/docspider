@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FileList } from '../Components/FilesUpload/FileList';
 import { FileUpload } from '../Components/FilesUpload/FileUpload';
-import { HeaderDoc } from '../Components/HeaderDocumentos/HeaderDoc';
 import styles from './Signup.module.css';
 
 const Signup = () => {

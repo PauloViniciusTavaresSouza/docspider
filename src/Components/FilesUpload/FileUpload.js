@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FileUpload.module.css';
 import axios from 'axios';
+import { fakeData } from '../../Database/FakeDatabase';
 
 export const FileUpload = ({ files, setFiles, removeFile }) => {
   const uploadHandle = (event) => {
@@ -10,6 +11,7 @@ export const FileUpload = ({ files, setFiles, removeFile }) => {
 
     // upload file
 
+    console.log(files);
     const formData = new FormData();
     formData.append(file.name, file, file.name);
 
@@ -26,18 +28,23 @@ export const FileUpload = ({ files, setFiles, removeFile }) => {
       });
   };
 
-  const [valueInput, SetValueInput] = React.useState('');
-  const [name, SetName] = React.useState('');
-
-  // console.log(valueInput);
-
-  function onChange(ev) {
-    const { name, value } = ev.target;
-    SetValueInput(value);
-    SetName(name);
+  function handleSubmit() {
+    fakeData.push({
+      title,
+      description,
+      uploadFile: [
+        {
+          name: files[0].name,
+          type: files[0].type,
+          dateTime: files[0].lastModifiedDate,
+        },
+      ],
+    });
+    return fakeData;
   }
-  // console.log(name);
-  // console.log(valueInput);
+  console.log(fakeData);
+  const [title, setTitle] = React.useState('');
+  const [description, setDescription] = React.useState('');
 
   return (
     <section>
@@ -46,35 +53,38 @@ export const FileUpload = ({ files, setFiles, removeFile }) => {
         <input
           className={styles.inputText}
           type="text"
-          name={name}
-          value={valueInput}
-          onChange={onChange}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
         <label htmlFor="descricao">Descrição</label>
         <input
-          onChange={onChange}
           className={styles.inputText}
           type="text"
-          name="descricao"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
-      </form>
-      <p className={styles.title}>Upload file</p>
 
-      <div className={styles.fileCard}>
-        <div className={styles.fileInputs}>
-          <input
-            className={styles.inputfile}
-            onChange={uploadHandle}
-            type="file"
-            name="file"
-          />
-          <button>+ Uploade</button>
+        <p className={styles.title}>Upload file</p>
+
+        <div className={styles.fileCard}>
+          <div className={styles.fileInputs}>
+            <input
+              className={styles.inputfile}
+              onChange={uploadHandle}
+              type="file"
+              name="file"
+            />
+            <button>+ Upload</button>
+          </div>
+
+          <p className={styles.main}>Suport files</p>
+          <p className={styles.info}>PDF, JPG, PNG</p>
         </div>
-
-        <p className={styles.main}>Suport files</p>
-        <p className={styles.info}>PDF, JPG, PNG</p>
-      </div>
+        <button type="button" onClick={handleSubmit}>
+          Enviar
+        </button>
+      </form>
     </section>
   );
 };
