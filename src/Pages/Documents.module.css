@@ -2,4 +2,31 @@
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.TitleDoc{
+  text-align: center;
+  padding: 50px;
+  color:#000B49 ; 
+  font-size: 28px;
+  background: red;
+}
+
+.cardDoc {
+  background: aliceblue;
+  width: 250px;
+  padding: 50px;
+  margin: 10px;
+  height: 300px;
+  border-radius: 15px;
+  text-align: center;
+}
+.cardDoc h2 {
+  font-size: 20px;
+}
+
+.cardDoc img { 
+  width: 50px;
 }
