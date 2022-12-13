@@ -47,3 +47,9 @@
 .cardDoc img { 
   width: 50px;
 }
+
+@media (max-width:550px) {
+  .cardDoc {
+    height: 450px;
+  }
+}

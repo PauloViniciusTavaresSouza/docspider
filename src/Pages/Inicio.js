@@ -42,7 +42,7 @@ export const Inicio = ({ open }) => {
               <h1>Venha fazer um orçamento</h1>
               <div className={styles.buttoncta}>
                 <button>
-                  <Link to="/document">Fazer Orçamento</Link>
+                  <Link to="/signup">Fazer Orçamento</Link>
                 </button>
               </div>
             </div>

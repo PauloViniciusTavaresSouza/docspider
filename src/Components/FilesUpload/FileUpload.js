@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './FileUpload.module.css';
 import axios from 'axios';
 import { fakeData } from '../../Database/FakeDatabase';
+import { Link } from 'react-router-dom';
 
 export const FileUpload = ({ files, setFiles, removeFile }) => {
   const uploadHandle = (event) => {
@@ -70,6 +71,7 @@ export const FileUpload = ({ files, setFiles, removeFile }) => {
         <div className={styles.fileCard}>
           <div className={styles.fileInputs}>
             <input
+              required
               className={styles.inputfile}
               onChange={uploadHandle}
               type="file"
@@ -81,8 +83,16 @@ export const FileUpload = ({ files, setFiles, removeFile }) => {
           <p className={styles.main}>Suport files</p>
           <p className={styles.info}>PDF, JPG, PNG</p>
         </div>
-        <button type="button" onClick={handleSubmit}>
-          Enviar
+        <span>
+          Obs: todos os campos devem ser preenchidos, ou o formulário não
+          encaminhará os dados
+        </span>
+        <button
+          className={styles.buttonSubmit}
+          type="button"
+          onClick={handleSubmit}
+        >
+          <Link to="/document">Enviar</Link>
         </button>
       </form>
     </section>
