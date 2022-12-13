@@ -31,7 +31,10 @@ export const Home = () => {
           >
             <Routes>
               <Route path="/inicio" element={<Inicio open={open} />} />
-              <Route path="/document" element={<Documents open={open} />} />
+              <Route
+                path="/document"
+                element={<Documents modalVisible={modalVisible} open={open} />}
+              />
               <Route path="/signup" element={<Signup open={open} />} />
               <Route
                 path="/sobre"

@@ -18,13 +18,54 @@
 .modal {
   width: 600px;
   height: 400px;
-  background: red;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  box-shadow: 1px 1px 20px 10px #D5D5D5;
+  background-color: #fff;
+  border: 2px solid #D8D8D8;
 }
 
+.buttonFechar { 
+  position: relative;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #003F82;
+  color: #fff;
+  border-radius: 50%;
+  top: -195px;
+  left: -15px;
+  box-shadow: 1px 1px 10px 10px #eee;
+
+}
+
+.logo { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, #000C4B , #001150);
+
+}
+
+.logo img {
+  width: 200px;
+  height: auto;
+}
+
+.logoInfo{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
 @media (max-width:450px) {
   .containerPrincipal {
     width: 100vw;

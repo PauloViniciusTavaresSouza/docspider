@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './Sobre.module.css';
+import Logo from '../img/logo.png';
+import { Link } from 'react-router-dom';
 
 export const Sobre = ({ modalVisible, setModalVisible }) => {
   function onClick(event) {
     if (event.target === event.currentTarget) setModalVisible(false);
-    console.log('isso é current', event.currentTarget);
-    console.log('isso é Target', event.target);
   }
-  function toggleModal(event) {
+
+  function toggleModal() {
     if (modalVisible === false) {
       setModalVisible(true);
     } else {
@@ -19,14 +20,25 @@ export const Sobre = ({ modalVisible, setModalVisible }) => {
       <div onClick={onClick} className={styles.containerModal}>
         {modalVisible ? (
           <div className={styles.modal}>
-            ModalSobre
-            <button onClick={toggleModal}>Fechar</button>
+            <div className={styles.logo}>
+              <img src={Logo} alt="logo empresa" />
+            </div>
+            <div className={styles.logoInfo}>
+              <h1>DOCSPIDER</h1>
+              <p>Versão: "version": "0.1.0",</p>
+            </div>
           </div>
         ) : (
-          <div>
-            <h1>nossa empresa bla bla bla</h1>
-            <button onClick={toggleModal}>Saber Versão</button>
-          </div>
+          ''
+        )}
+        {modalVisible ? (
+          <Link to="/inicio">
+            <button className={styles.buttonFechar} onClick={toggleModal}>
+              x
+            </button>
+          </Link>
+        ) : (
+          ''
         )}
       </div>
     </section>
