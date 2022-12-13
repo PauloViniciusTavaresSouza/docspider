@@ -4,7 +4,7 @@ export const fakeData = [
     description:
       'Encaminando um arquivo onde mostrará todas as minhas regras de negocios',
     uploadFile: [
-      { name: 'paulo', type: 'Qualquer coisa', dateTime: 'Brasilia' },
+      { name: 'Avaliação.jpg', type: 'Qualquer coisa', dateTime: 'Brasilia' },
     ],
   },
 ];
